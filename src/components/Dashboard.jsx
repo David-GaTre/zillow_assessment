@@ -23,7 +23,7 @@ const Dashboard = () => {
   useEffect(() => {
     const loadCSV = async () => {
       try {
-        const response = await fetch('/aggregated_states.csv');
+        const response = await fetch(import.meta.env.BASE_URL + 'aggregated_states.csv');
         const csvText = await response.text();
         Papa.parse(csvText, {
           header: true,

@@ -11,7 +11,7 @@ const TopInventorySummary = ({ dateRange }) => {
     const fetchData = async () => {
       try {
         // 1. Top 5 regions from original file
-        const origResp = await fetch('/Metro_invt_fs_uc_sfrcondo_sm_week.csv');
+        const origResp = await fetch(import.meta.env.BASE_URL + 'Metro_invt_fs_uc_sfrcondo_sm_week.csv');
         const origText = await origResp.text();
         Papa.parse(origText, {
           header: true,
@@ -39,7 +39,7 @@ const TopInventorySummary = ({ dateRange }) => {
         });
 
         // 2. Top 5 states from aggregated file
-        const aggResp = await fetch('/aggregated_states.csv');
+        const aggResp = await fetch(import.meta.env.BASE_URL + 'aggregated_states.csv');
         const aggText = await aggResp.text();
         Papa.parse(aggText, {
           header: true,
